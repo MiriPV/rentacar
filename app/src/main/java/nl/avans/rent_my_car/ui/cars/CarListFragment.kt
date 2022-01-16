@@ -24,8 +24,29 @@ class CarListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-       // carViewModel =
+    ) {
+        // getting the recyclerview by its id
+        //val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
+
+        // this creates a vertical layout Manager
+        //recyclerview.layoutManager = LinearLayoutManager(this)
+
+        // ArrayList of class ItemsViewModel
+        //val data = ArrayList<CarViewModel>()
+
+        // This loop will create 20 Views containing
+        // the image with the count of view
+        //for (i in 1..20) {
+        //    data.add(CarViewModel(R.drawable.ic_baseline_view_list_24, "Item " + i))
+        //}
+
+        // This will pass the ArrayList to our Adapter
+        //val adapter = CustomAdapter(data)
+
+        // Setting the Adapter with the recyclerview
+        //recyclerview.adapter = adapter
+
+        // carViewModel =
         //    ViewModelProvider(this)[carViewModel]
 
         _binding = FragmentCarListBinding.inflate(inflater, container, false)
@@ -37,14 +58,13 @@ class CarListFragment : Fragment() {
         val data = ArrayList<CarViewModel>()
 
         for (i in 1..20) {
-            data.add(CarViewModel(R.drawable.ic_baseline_view_list_24, "Item " + i))
+            data.add(CarViewModel(1, "Item " + i))
         }
 
         val adapter = CustomAdapter(data)
 
         recyclerView.adapter = adapter
 
-        return root
     }
 
     override fun onDestroyView() {
