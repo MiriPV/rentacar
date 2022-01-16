@@ -1,12 +1,11 @@
 package nl.avans.rent_my_car.ui.cars
 
-import CustomAdapter
+import nl.avans.rent_my_car.CustomAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import nl.avans.rent_my_car.databinding.FragmentCarListBinding
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,29 +18,41 @@ class CarListFragment : Fragment() {
     private var _binding: FragmentCarListBinding? = null
 
     private val binding get() = _binding!!
+    private lateinit var adapter: CustomAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        _binding = FragmentCarListBinding.inflate(inflater, container, false)
+        val recyclerView: RecyclerView = binding.carList
+        recyclerView.layoutManager = LinearLayoutManager(this.context)
+
+        val data = ArrayList<CarViewModel>()
+
+        for (i in 1..20) {
+            data.add(CarViewModel(1, "Item " ))
+        }
+
+        adapter = CustomAdapter(data)
+        recyclerView.adapter = adapter
+
+        return binding.root
+
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         // getting the recyclerview by its id
-        //val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
+        val recyclerview = requireView()!!.findViewById<RecyclerView>(R.id.recyclerview)
 
         // this creates a vertical layout Manager
-        //recyclerview.layoutManager = LinearLayoutManager(this)
+        //recyclerview.layoutManager = LinearLayoutManager(this.context)
 
-        // ArrayList of class ItemsViewModel
-        //val data = ArrayList<CarViewModel>()
-
-        // This loop will create 20 Views containing
-        // the image with the count of view
-        //for (i in 1..20) {
-        //    data.add(CarViewModel(R.drawable.ic_baseline_view_list_24, "Item " + i))
-        //}
 
         // This will pass the ArrayList to our Adapter
-        //val adapter = CustomAdapter(data)
+        //val adapter = nl.avans.rent_my_car.CustomAdapter(data)
 
         // Setting the Adapter with the recyclerview
         //recyclerview.adapter = adapter
@@ -49,10 +60,10 @@ class CarListFragment : Fragment() {
         // carViewModel =
         //    ViewModelProvider(this)[carViewModel]
 
-        _binding = FragmentCarListBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        val recyclerView: RecyclerView = binding.carList
-        recyclerView.layoutManager = LinearLayoutManager(this.context)
+        //_binding = FragmentCarListBinding.inflate(inflater, container, false)
+        //val root: View = binding.root
+        //val recyclerView: RecyclerView = binding.carList
+        //recyclerview.layoutManager = LinearLayoutManager(this.context)
 
         val data = ArrayList<CarViewModel>()
 
@@ -62,9 +73,8 @@ class CarListFragment : Fragment() {
 
         val adapter = CustomAdapter(data)
 
-        recyclerView.adapter = adapter
+        //recyclerview.adapter = adapter
 
-        return root
     }
 
     override fun onDestroyView() {
