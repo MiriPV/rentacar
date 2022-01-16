@@ -24,7 +24,7 @@ class CarListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) {
+    ): View {
         // getting the recyclerview by its id
         //val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
 
@@ -53,8 +53,7 @@ class CarListFragment : Fragment() {
         val root: View = binding.root
         val recyclerView: RecyclerView = binding.carList
         recyclerView.layoutManager = LinearLayoutManager(this.context)
-        //val adapter = CustomAdapter(arrayOf("mercedes", "BMW", "audi"))
-        // ArrayList of class ItemsViewModel
+
         val data = ArrayList<CarViewModel>()
 
         for (i in 1..20) {
@@ -65,6 +64,7 @@ class CarListFragment : Fragment() {
 
         recyclerView.adapter = adapter
 
+        return root
     }
 
     override fun onDestroyView() {

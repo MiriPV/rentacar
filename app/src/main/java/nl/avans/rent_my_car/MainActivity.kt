@@ -1,6 +1,9 @@
 package nl.avans.rent_my_car
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
 
@@ -27,27 +30,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // getting the recyclerview by its id
-        //val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
-
-        // this creates a vertical layout Manager
-        //recyclerview.layoutManager = LinearLayoutManager(this)
-
-        // ArrayList of class ItemsViewModel
-        //val data = ArrayList<CarViewModel>()
-
-        // This loop will create 20 Views containing
-        // the image with the count of view
-        //for (i in 1..20) {
-        //    data.add(CarViewModel(R.drawable.ic_baseline_view_list_24, "Item " + i))
-        //}
-
-        // This will pass the ArrayList to our Adapter
-        //val adapter = CustomAdapter(data)
-
-        // Setting the Adapter with the recyclerview
-        //recyclerview.adapter = adapter
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -64,6 +46,15 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment!!.navController
 
         setupActionBarWithNavController(navController, appBarConfiguration)
-        //navView.setupWithNavController(navController)
+        navView.setupWithNavController(navController)
+    }
+    /** Called when the user taps the Send button */
+    fun sendMessage(view: View) {
+        val editText = findViewById<EditText>(R.id.editTextTextPersonName)
+        val message = editText.text.toString()
+        //val intent = Intent(this, DisplayMessageActivity::class.java).apply {
+        //    putExtra(EXTRA_MESSAGE, message)
+        //}
+        //startActivity(intent)
     }
 }
