@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="nl.avans.rent_my_car.ui.cars.OverviewViewModel" />
+            type="nl.avans.rent_my_car.ui.cars.CarViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

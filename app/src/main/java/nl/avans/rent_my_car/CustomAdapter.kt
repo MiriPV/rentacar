@@ -1,44 +1,45 @@
-package nl.avans.rent_my_car
-import androidx.recyclerview.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
-import nl.avans.rent_my_car.ui.cars.Car
+import androidx.recyclerview.widget.RecyclerView
+import nl.avans.rent_my_car.R
+import nl.avans.rent_my_car.ui.cars.CarViewModel
 
-class CustomAdapter
-(private val mDataSet: Array<Any>) :
-    RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val mList: List<CarViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
-    class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        init {
-            v.setOnClickListener {
-                Log.d(
-                    TAG,
-                    "Element $adapterPosition clicked."
-                )
-            }
-            val textViewBrand  = v.findViewById<TextView>(R.id.tvBrand)
-        }
+    // create new views
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        // inflates the card_view_design view
+        // that is used to hold list item
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.card_view_design, parent, false)
+
+        return ViewHolder(view)
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        val v: View = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.car_item, viewGroup, false)
-        return ViewHolder(v)
+    // binds the list items to a view
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+        val ItemsViewModel = mList[position]
+
+        // sets the image to the imageview from our itemHolder class
+        holder.imageView.setImageResource(ItemsViewModel.image)
+
+        // sets the text to the textview from our itemHolder class
+        holder.textView.text = ItemsViewModel.text
+
     }
 
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        Log.d(TAG, "Element $position set.")
-        viewHolder.textView.text = mDataSet[position]
-    }
-
+    // return the number of the items in the list
     override fun getItemCount(): Int {
-        return mDataSet.size
+        return mList.size
     }
 
-    companion object {
-        private const val TAG = "CustomAdapter"
+    // Holds the views for adding it to image and text
+    class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+        val imageView: ImageView = itemView.findViewById(R.id.imageview)
+        val textView: TextView = itemView.findViewById(R.id.textView)
     }
 }

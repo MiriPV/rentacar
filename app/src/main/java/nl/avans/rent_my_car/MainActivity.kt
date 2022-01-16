@@ -1,33 +1,37 @@
 package nl.avans.rent_my_car
 
+import CustomAdapter
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import nl.avans.rent_my_car.databinding.ActivityMainBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import nl.avans.rent_my_car.ui.cars.CarViewModel
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        // getting the recyclerview by its id
+        val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
 
-        val navView: BottomNavigationView = binding.navView
+        // this creates a vertical layout Manager
+        recyclerview.layoutManager = LinearLayoutManager(this)
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.home, R.id.car_list_fragment, R.id.navigation_notifications
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        // ArrayList of class ItemsViewModel
+        val data = ArrayList<CarViewModel>()
+
+        // This loop will create 20 Views containing
+        // the image with the count of view
+        for (i in 1..20) {
+            data.add(CarViewModel(R.drawable.ic_baseline_view_list_24, "Item " + i))
+        }
+
+        // This will pass the ArrayList to our Adapter
+        val adapter = CustomAdapter(data)
+
+        // Setting the Adapter with the recyclerview
+        recyclerview.adapter = adapter
+
     }
 }
