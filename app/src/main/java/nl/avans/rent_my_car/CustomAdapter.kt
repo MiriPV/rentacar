@@ -26,7 +26,7 @@ class CustomAdapter(private val mList: List<CarViewModel>) : RecyclerView.Adapte
         val ItemsViewModel = mList[position]
 
         // sets the image to the imageview from our itemHolder class
-        //holder.imageView.setImageResource(ItemsViewModel.image)
+        holder.imageView.setImageResource(ItemsViewModel.image)
 
         // sets the text to the textview from our itemHolder class
         holder.textView.text = ItemsViewModel.text

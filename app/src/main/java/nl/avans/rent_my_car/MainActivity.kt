@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         //val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.home, R.id.car_list_fragment
+                R.id.home, R.id.car_list_fragment, R.id.profileFragment
             )
         )
         val navHostFragment =
@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun sendMessage(view: View) {
-        val editText = findViewById<EditText>(R.id.editTextTextPersonName)
-        val message = editText.text.toString()
+        //val editText = findViewById<EditText>(R.id.editTextTextPersonName)
+       //val message = editText.text.toString()
         //val intent = Intent(this, DisplayMessageActivity::class.java).apply {
         //    putExtra(EXTRA_MESSAGE, message)
         //}
