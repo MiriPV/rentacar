@@ -24,8 +24,8 @@
         android:label="@string/title_car_list"
         tools:layout="@layout/fragment_car_list" >
         <action
-            android:id="@+id/action_car_list_fragment_to_placeholder"
-            app:destination="@id/placeholder" />
+            android:id="@+id/action_car_list_fragment_to_theCarDetailFragment"
+            app:destination="@id/theCarDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -35,12 +35,16 @@
             android:id="@+id/action_profileFragment_to_placeholder2"
             app:destination="@id/placeholder2" />
     </fragment>
-    <fragment android:id="@+id/placeholder" >
+    <fragment android:id="@+id/placeholder2" />
+    <fragment
+        android:id="@+id/theCarDetailFragment"
+        android:name="nl.avans.rent_my_car.TheCarDetailFragment"
+        android:label="fragment_the_car_detail"
+        tools:layout="@layout/fragment_the_car_detail" >
         <action
-            android:id="@+id/action_placeholder_to_car_list_fragment"
+            android:id="@+id/action_theCarDetailFragment_to_car_list_fragment"
             app:destination="@id/car_list_fragment" />
     </fragment>
-    <fragment android:id="@+id/placeholder2" />
 
 
 </navigation>
