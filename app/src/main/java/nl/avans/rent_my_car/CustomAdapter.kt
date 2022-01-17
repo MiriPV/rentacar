@@ -3,10 +3,11 @@ package nl.avans.rent_my_car
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import nl.avans.rent_my_car.ui.cars.CarListFragment
 import nl.avans.rent_my_car.ui.cars.CarViewModel
 
 class CustomAdapter(private val mList: List<CarViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
@@ -31,9 +32,8 @@ class CustomAdapter(private val mList: List<CarViewModel>) : RecyclerView.Adapte
 
         // sets the text to the textview from our itemHolder class
         holder.textView.text = ItemsViewModel.text
-
-        holder.itemView.setOnClickListener{
-            print("hallo ik ben geklikt")
+        holder.button.setOnClickListener {
+            holder.button.text = "Geklikt"
         }
     }
 
@@ -45,6 +45,7 @@ class CustomAdapter(private val mList: List<CarViewModel>) : RecyclerView.Adapte
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageview)
+        val button: Button = itemView.findViewById(R.id.button6)
         val textView: TextView = itemView.findViewById(R.id.textView)
     }
 }
