@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import nl.avans.rent_my_car.ui.cars.CarViewModel
 
@@ -31,6 +32,9 @@ class CustomAdapter(private val mList: List<CarViewModel>) : RecyclerView.Adapte
         // sets the text to the textview from our itemHolder class
         holder.textView.text = ItemsViewModel.text
 
+        holder.itemView.setOnClickListener{
+            print("hallo ik ben geklikt")
+        }
     }
 
     // return the number of the items in the list
