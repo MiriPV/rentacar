@@ -31,14 +31,16 @@ class CustomAdapter(private val mList: List<CarViewModel>) : RecyclerView.Adapte
         // sets the image to the imageview from our itemHolder class
         holder.imageView.setImageResource(ItemsViewModel.image)
 
-        // sets the text to the textview from our itemHolder class
         holder.textView.text = ItemsViewModel.text
         holder.button.setOnClickListener {
             holder.button.text = "Geklikt"
-            //var navController = Navigation.findNavController(holder.itemView)
+
             val navController = Navigation.findNavController(holder.itemView)
-            navController.navigate(R.id.home)
-            //navController!!.navigate(R.id.action_car_list_fragment_to_placeholder)
+            val details = TheCarDetailFragment.newInstance("volvo", "car")
+            //navController.navigate(details)
+            navController.navigate(R.id.theCarDetailFragment)
+
+
         }
     }
 
