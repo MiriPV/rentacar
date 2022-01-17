@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import nl.avans.rent_my_car.ui.cars.CarListFragment
 import nl.avans.rent_my_car.ui.cars.CarViewModel
@@ -34,6 +35,10 @@ class CustomAdapter(private val mList: List<CarViewModel>) : RecyclerView.Adapte
         holder.textView.text = ItemsViewModel.text
         holder.button.setOnClickListener {
             holder.button.text = "Geklikt"
+            //var navController = Navigation.findNavController(holder.itemView)
+            val navController = Navigation.findNavController(holder.itemView)
+            navController.navigate(R.id.home)
+            //navController!!.navigate(R.id.action_car_list_fragment_to_placeholder)
         }
     }
 
