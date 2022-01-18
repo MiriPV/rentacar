@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="nl.avans.rent_my_car.ui.profile.RegistrationFragment"
+        android:name="nl.avans.rent_my_car.ui.registry.RegistrationFragment"
         android:label="@string/registration_fragment" >
         <action
             android:id="@+id/action_profileFragment_to_placeholder2"

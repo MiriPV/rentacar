@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context=".ui.profile.RegistrationFragment"
+    tools:context=".ui.registry.RegistrationFragment"
     android:orientation="vertical">
 
     <TextView

@@ -1,4 +1,4 @@
-package nl.avans.rent_my_car.ui.profile
+package nl.avans.rent_my_car.ui.registry
 
 import android.os.Bundle
 import android.view.LayoutInflater
