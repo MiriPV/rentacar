@@ -12,6 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import nl.avans.rent_my_car.R
 import nl.avans.rent_my_car.model.Car
 import java.text.NumberFormat
+import android.os.Bundle
+
+
+
 
 class CustomAdapter(private val carList: List<Car>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
@@ -49,7 +53,13 @@ class CustomAdapter(private val carList: List<Car>) : RecyclerView.Adapter<Custo
             val navController = Navigation.findNavController(holder.itemView)
             //val details = TheCarDetailFragment.newInstance("volvo", "car")
             //navController.navigate(details)
-            navController.navigate(R.id.theCarDetailFragment)
+            val bundle = Bundle()
+            bundle.putString("licencePlate", car.licencePlate)
+            bundle.putString("brand", brand)
+            bundle.putString("type", type)
+            bundle.putString("seats", seats)
+            bundle.putString("cost", cost)
+            navController.navigate(R.id.theCarDetailFragment, bundle)
         }
     }
 

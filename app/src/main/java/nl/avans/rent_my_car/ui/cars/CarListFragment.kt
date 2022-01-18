@@ -10,16 +10,11 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import nl.avans.rent_my_car.databinding.FragmentCarListBinding
 import androidx.recyclerview.widget.LinearLayoutManager
-import nl.avans.rent_my_car.R
-import nl.avans.rent_my_car.model.Car
 import nl.avans.rent_my_car.model.CarViewModel
-import nl.avans.rent_my_car.model.RentMyCarDAO
-import java.util.Collections.list
 
 
 class CarListFragment : Fragment() {
     private var _binding: FragmentCarListBinding? = null
-    private val carDAO = RentMyCarDAO()
 
     private val binding get() = _binding!!
     private lateinit var adapter: CustomAdapter

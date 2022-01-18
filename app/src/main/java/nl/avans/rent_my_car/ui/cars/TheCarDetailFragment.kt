@@ -5,28 +5,35 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import nl.avans.rent_my_car.R
+import nl.avans.rent_my_car.databinding.FragmentTheCarDetailBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_LP = "licencePlate"
+private const val ARG_BRAND = "brand"
+private const val ARG_TYPE = "type"
+private const val ARG_SEATS = "seats"
+private const val ARG_COST = "cost"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TheCarDetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TheCarDetailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentTheCarDetailBinding? = null
+    private val binding get() = _binding!!
+
+    private var paramLP: String? = null
+    private var paramBrand: String? = null
+    private var paramType: String? = null
+    private var paramSeats: String? = null
+    private var paramCost: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            paramLP = it.getString(ARG_LP)
+            paramBrand = it.getString(ARG_BRAND)
+            paramType = it.getString(ARG_TYPE)
+            paramSeats = it.getString(ARG_SEATS)
+            paramCost = it.getString(ARG_COST)
         }
     }
 
@@ -34,27 +41,23 @@ class TheCarDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_the_car_detail, container, false)
+        _binding = FragmentTheCarDetailBinding.inflate(inflater, container, false)
+        val imageView : ImageView = binding.ivCar
+        val textViewBrand: TextView = binding.tvBrand
+        val textViewType: TextView = binding.tvType
+        val textViewSeats: TextView = binding.tvSeats
+        val textViewCost: TextView = binding.tvCost
+
+        imageView.setImageResource(R.drawable.ic_baseline_directions_car_24)
+        textViewBrand.text = paramBrand
+        textViewType.text = paramType
+        textViewSeats.text = paramSeats
+        textViewCost.text = paramCost
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TheCarDetailFragment.
-         */
-
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TheCarDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
