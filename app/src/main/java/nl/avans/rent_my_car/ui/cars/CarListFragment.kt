@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import nl.avans.rent_my_car.databinding.FragmentCarListBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import nl.avans.rent_my_car.R
 import nl.avans.rent_my_car.model.Car
+import nl.avans.rent_my_car.model.CarViewModel
 import nl.avans.rent_my_car.model.RentMyCarDAO
+import java.util.Collections.list
 
 
 class CarListFragment : Fragment() {
@@ -25,16 +28,16 @@ class CarListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentCarListBinding.inflate(inflater, container, false)
         val recyclerView: RecyclerView = binding.carList
         recyclerView.layoutManager = LinearLayoutManager(this.context)
 
-        adapter = CustomAdapter(carDAO.getAll())
-        recyclerView.adapter = adapter
+        val model: CarViewModel by viewModels()
+        model.response.observe(this) {
+            recyclerView.adapter = CustomAdapter(model.response.value!!)
+        }
 
         return binding.root
-
     }
 
     override fun onDestroyView() {

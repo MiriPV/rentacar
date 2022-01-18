@@ -13,7 +13,7 @@ import nl.avans.rent_my_car.R
 import nl.avans.rent_my_car.model.Car
 import java.text.NumberFormat
 
-class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val carList: List<Car>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,7 +28,7 @@ class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomA
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val car = mList[position]
+        val car = carList[position]
 
         val context: Context = holder.itemView.context
         val brand: String = context.getString(R.string.text_brand).format(car.brand)
@@ -55,7 +55,7 @@ class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomA
 
     // return the number of the items in the list
     override fun getItemCount(): Int {
-        return mList.size
+        return carList.size
     }
 
     // Holds the views for adding it to image and text

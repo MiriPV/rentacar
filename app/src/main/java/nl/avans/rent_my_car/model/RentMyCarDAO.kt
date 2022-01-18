@@ -2,6 +2,7 @@ package nl.avans.rent_my_car.model
 
 class RentMyCarDAO : CarDAO {
     override fun getAll(): List<Car> {
+
         return listOf(
             Car(
                 "BMW",
