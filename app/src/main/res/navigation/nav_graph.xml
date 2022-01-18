@@ -15,7 +15,7 @@
             app:destination="@id/car_list_fragment" />
         <action
             android:id="@+id/action_home_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/registrationFragment" />
     </fragment>
 
     <fragment
@@ -28,9 +28,9 @@
             app:destination="@id/theCarDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="nl.avans.rent_my_car.ui.profile.ProfileFragment"
-        android:label="@string/profile_fragment" >
+        android:id="@+id/registrationFragment"
+        android:name="nl.avans.rent_my_car.ui.profile.RegistrationFragment"
+        android:label="@string/registration_fragment" >
         <action
             android:id="@+id/action_profileFragment_to_placeholder2"
             app:destination="@id/placeholder2" />

@@ -5,7 +5,7 @@
     <string name="title_car_list">Auto\'s</string>
     <string name="dummy_button">Dummy knop</string>
     <string name="hello_blank_fragment">Hallo leeg fragment</string>
-    <string name="profile_fragment">Profiel Fragment</string>
+    <string name="registration_fragment">Profiel Fragment</string>
     <string name="title_car_detail">Auto detailscherm</string>
     <string name="about">
         Deze Android applicatie is ontwikkeld door Miranda Verheij voor de Avans module:
@@ -20,4 +20,8 @@
     <string name="text_type">Type: %.15s</string>
     <string name="text_seats">Aantal Stoelen: %.3s</string>
     <string name="text_cost">Kosten per uur: %.100s</string>
+    <string name="registration_explanation">
+        Vul alstublieft de volgende informatie in over de auto die u wilt toevoegen: Merk, Type(ICE, FCEV, BEV), kenteken, aantal stoel en de huurkosten per uur. Als u klaar bent, klik dan op de VERZENDEN knop. Er zal een tekst op het scherm verschijnen om het toevoegen van de auto te bevestigen.
+    </string>
+    <string name="button_send"> VERZENDEN </string>
 </resources>

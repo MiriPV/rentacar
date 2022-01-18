@@ -2,6 +2,7 @@ package nl.avans.rent_my_car.network
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import nl.avans.rent_my_car.model.Car
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
@@ -20,6 +21,9 @@ val retrofit: Retrofit = Retrofit.Builder()
 interface CarService {
     @GET("cars")
     suspend fun getCars(): List<Car>
+
+    @POST("cars")
+    suspend fun postCar(@Body car: Car): Car
 }
 
 object CarApi {

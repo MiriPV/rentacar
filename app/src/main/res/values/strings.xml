@@ -4,7 +4,7 @@
     <string name="title_car_list">Cars</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="profile_fragment">Profile fragment</string>
+    <string name="registration_fragment">Registration</string>
     <string name="title_car_detail">Car details</string>
     <string name="about">
         This Android application was developed by Miranda Verheij for the Avans course:
@@ -19,4 +19,6 @@
     <string name="text_type">Type: %.15s</string>
     <string name="text_seats">Number of seats: %.3s</string>
     <string name="text_cost">Cost per hour: %.100s</string>
+    <string name="registration_explanation">Please enter the following information about the car you want to add: Brand, Type(ICE, FCEV, BEV), licence plate, number of seats and the cost per hour to rent the car. When you are done, click on the SEND button. A text will show up on the screen to comfirm that the car is added.</string>
+    <string name="button_send"> SEND </string>
 </resources>
