@@ -38,7 +38,7 @@
     <fragment android:id="@+id/placeholder2" />
     <fragment
         android:id="@+id/theCarDetailFragment"
-        android:name="nl.avans.rent_my_car.TheCarDetailFragment"
+        android:name="nl.avans.rent_my_car.ui.cars.TheCarDetailFragment"
         android:label="@string/title_car_detail"
         tools:layout="@layout/fragment_the_car_detail" >
         <action
