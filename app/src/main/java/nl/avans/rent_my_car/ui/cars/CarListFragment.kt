@@ -35,7 +35,7 @@ class CarListFragment : Fragment() {
         val data = ArrayList<CarViewModel>()
 
         for (i in 1..20) {
-            data.add(CarViewModel(R.drawable.ic_baseline_view_list_24, "Item " ))
+            data.add(CarViewModel(R.drawable.ic_baseline_directions_car_24, "Item " ))
         }
 
         adapter = CustomAdapter(data)

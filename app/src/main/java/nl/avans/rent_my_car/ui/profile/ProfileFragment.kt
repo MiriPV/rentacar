@@ -8,9 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import nl.avans.rent_my_car.databinding.FragmentHomeBinding
 import nl.avans.rent_my_car.databinding.FragmentProfileBinding
-import nl.avans.rent_my_car.ui.home.HomeViewModel
 
 class ProfileFragment : Fragment() {
 

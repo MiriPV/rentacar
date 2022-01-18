@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Huur Mijn Auto</string>
+    <string name="title_home">Startpagina</string>
+    <string name="title_car_list">Auto\'s</string>
+    <string name="dummy_button">Dummy knop</string>
+    <string name="hello_blank_fragment">Hallo leeg fragment</string>
+    <string name="profile_fragment">Profiel Fragment</string>
+    <string name="title_car_detail">Auto detailscherm</string>
+    <string name="about">
+        Deze Android applicatie is ontwikkeld door Miranda Verheij voor de Avans module:
+        "Java development en mobile, deel 2: OO en mobile". \n \n
+
+        Het doel van deze app is het huren van auto\'s van anderen of je eigen auto te verhuren. \n \n
+
+        Veel plezier met de app!
+    </string>
+</resources>

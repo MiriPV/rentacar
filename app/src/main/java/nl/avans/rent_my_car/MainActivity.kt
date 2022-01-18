@@ -1,20 +1,14 @@
 package nl.avans.rent_my_car
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
-
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import nl.avans.rent_my_car.databinding.ActivityMainBinding
-
 import androidx.navigation.findNavController
-
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.navigation.NavController
 
 
 import androidx.navigation.fragment.NavHostFragment
