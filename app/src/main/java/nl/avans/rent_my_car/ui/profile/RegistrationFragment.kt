@@ -39,17 +39,15 @@ class RegistrationFragment : Fragment() {
             val type: String = typeEditView.text.toString()
             val lp: String = lpEditView.text.toString()
 
-            var seats: Int
-            try {
-                seats = seatsEditView.text.toString().toInt()
+            val seats: Int = try {
+                seatsEditView.text.toString().toInt()
             } catch (e: Exception) {
-                seats = 0
+                0
             }
-            var cost: Double
-            try {
-                cost = costEditView.text.toString().toDouble()
+            val cost: Double = try {
+                costEditView.text.toString().toDouble()
             } catch (e: Exception) {
-                cost = 0.00
+                0.00
             }
             model.addCar(Car(brand, type, lp, seats, cost))
             model.postResponse.observe(this) {
