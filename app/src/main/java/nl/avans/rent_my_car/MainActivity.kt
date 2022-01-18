@@ -45,6 +45,12 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
+    //Go back to the previous fragment
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
     fun sendMessage(view: View) {
         //val editText = findViewById<EditText>(R.id.editTextTextPersonName)
        //val message = editText.text.toString()
