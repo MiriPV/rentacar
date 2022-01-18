@@ -24,21 +24,21 @@
             android:textSize="12sp"/>
 
         <LinearLayout
-            android:layout_width="150dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView_licencePlate"
-                android:layout_width="146dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
                 <TextView
                 android:id="@+id/textView_brand"
-                android:layout_width="146dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:textSize="16sp"
@@ -46,7 +46,7 @@
 
             <TextView
                 android:id="@+id/textView_type"
-                android:layout_width="146dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:textSize="16sp"
@@ -54,14 +54,14 @@
 
             <TextView
                 android:id="@+id/textView_seats"
-                android:layout_width="146dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:textSize="16sp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/textView_cost"
-                android:layout_width="146dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:textSize="16sp"

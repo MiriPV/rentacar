@@ -16,4 +16,8 @@
         Veel plezier met de app!
     </string>
     <string name="button_text_rent">Huur deze auto</string>
+    <string name="text_brand">Merk: %.15s</string>
+    <string name="text_type">Type: %.15s</string>
+    <string name="text_seats">Aantal Stoelen: %.3s</string>
+    <string name="text_cost">Kosten per uur: %.100s</string>
 </resources>

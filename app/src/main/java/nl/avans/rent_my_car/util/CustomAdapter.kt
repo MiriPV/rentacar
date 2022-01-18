@@ -1,5 +1,6 @@
 package nl.avans.rent_my_car.util
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import nl.avans.rent_my_car.R
 import nl.avans.rent_my_car.model.Car
+import java.text.NumberFormat
 
 class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
@@ -28,22 +30,23 @@ class CustomAdapter(private val mList: List<Car>) : RecyclerView.Adapter<CustomA
 
         val car = mList[position]
 
-        //val brand = R.string.text_brand
-        //val type = "Type: ${carList[position].type}"
-        //val seats = "Number of seats: ${carList[position].seats}"
-        //val currencyFormat = NumberFormat.getCurrencyInstance().format(carList[position].rent)
-        //val cost = "Cost per hour: $currencyFormat"
+        val context: Context = holder.itemView.context
+        val brand: String = context.getString(R.string.text_brand).format(car.brand)
+        val type: String = context.getString(R.string.text_type).format(car.type)
+        val seats: String = context.getString(R.string.text_seats).format(car.seatCount.toString())
+        val currencyFormat: String = NumberFormat.getCurrencyInstance().format(car.rentPerHour)
+        val cost: String = context.getString(R.string.text_cost).format(currencyFormat)
 
         // sets the image to the imageview from our itemHolder class
         holder.imageView.setImageResource(R.drawable.ic_baseline_directions_car_24)
         holder.textViewLicencePlate.text = car.licencePlate
-        holder.textViewBrand.text = car.brand
-        holder.textViewType.text = car.type
-        holder.textViewSeats.text = car.seatCount.toString()
-        holder.textViewCost.text = car.rentPerHour.toString()
+        holder.textViewBrand.text = brand
+        holder.textViewType.text = type
+        holder.textViewSeats.text = seats
+        holder.textViewCost.text = cost
 
         holder.button.setOnClickListener {
-            val navController = Navigation.findNavController(holder.imageView)
+            val navController = Navigation.findNavController(holder.itemView)
             //val details = TheCarDetailFragment.newInstance("volvo", "car")
             //navController.navigate(details)
             navController.navigate(R.id.theCarDetailFragment)

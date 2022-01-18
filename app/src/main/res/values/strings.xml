@@ -15,5 +15,8 @@
         I hope you like it!
     </string>
     <string name="button_text_rent">Click to Rent</string>
-    <string name="text_brand">Brand: ${}</string>
+    <string name="text_brand">Brand: %.15s</string>
+    <string name="text_type">Type: %.15s</string>
+    <string name="text_seats">Number of seats: %.3s</string>
+    <string name="text_cost">Cost per hour: %.100s</string>
 </resources>
