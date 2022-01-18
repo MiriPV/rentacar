@@ -51,7 +51,7 @@ class RegistrationFragment : Fragment() {
             } catch (e: Exception) {
                 cost = 0.00
             }
-            model.addCar(Car(brand, type, lp, seats!!, cost!!))
+            model.addCar(Car(brand, type, lp, seats, cost))
             model.postResponse.observe(this) {
                 resultTextView.text = model.postResponse.value + Car(brand, type, lp, seats, cost)
             }
