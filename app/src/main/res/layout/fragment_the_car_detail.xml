@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/ivCar"
-        android:layout_width="180dp"
+        android:layout_width="150dp"
         android:layout_height="150dp"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
@@ -17,6 +17,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvBrand"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toBottomOf="@id/ivCar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/x"/>
 
     <TextView
         android:id="@+id/tvBrand"
@@ -56,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="ivCar, tvCost" />
+        app:constraint_referenced_ids="ivCar, btnDelete, tvCost" />
 
     <CalendarView
         android:id="@+id/calendarView"

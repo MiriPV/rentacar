@@ -19,6 +19,10 @@ class CarViewModel : ViewModel() {
     val postResponse : LiveData<String>
     get() = _postResponse
 
+    private val _deleteResponse: MutableLiveData<String> = MutableLiveData()
+    val deleteResponse : LiveData<String>
+        get() = _deleteResponse
+
     init {
         getAllCars()
     }
@@ -40,6 +44,17 @@ class CarViewModel : ViewModel() {
                 _postResponse.value = "car: $car posted successfully"
             } catch (e: Exception) {
                 _postResponse.value = "car not posted. " + e.message.toString()
+            }
+        }
+    }
+
+    fun deleteCar(carId: Long) {
+        viewModelScope.launch {
+            try {
+                CarApi.carService.deleteCar(carId)
+                _deleteResponse.value = "car deleted successfully"
+            } catch (e: Exception) {
+                _deleteResponse.value = "car not deleted. " + e.message.toString()
             }
         }
     }

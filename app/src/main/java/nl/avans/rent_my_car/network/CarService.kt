@@ -24,6 +24,9 @@ interface CarService {
 
     @POST("cars")
     suspend fun postCar(@Body car: Car): Car
+
+    @DELETE("cars")
+    suspend fun deleteCar(@Query("car_id") CarId: Long)
 }
 
 object CarApi {

@@ -49,9 +49,9 @@ class RegistrationFragment : Fragment() {
             } catch (e: Exception) {
                 0.00
             }
-            model.addCar(Car(brand, type, lp, seats, cost))
+            model.addCar(Car(brand, type, 20, lp, seats, cost))
             model.postResponse.observe(this) {
-                resultTextView.text = model.postResponse.value + Car(brand, type, lp, seats, cost)
+                resultTextView.text = model.postResponse.value + Car(brand, type, 20, lp, seats, cost)
             }
         }
             return binding.root
