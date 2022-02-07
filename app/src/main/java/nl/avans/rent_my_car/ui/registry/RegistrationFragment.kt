@@ -22,13 +22,14 @@ class RegistrationFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRegistrationBinding.inflate(inflater, container, false)
         val brandEditView: EditText = binding.brand
         val typeEditView: EditText = binding.type
         val lpEditView: EditText = binding.lp
         val seatsEditView: EditText = binding.seats
         val costEditView: EditText = binding.cost
+        val userIdEditView: EditText = binding.userId
         val button: Button = binding.buttonSend
         val resultTextView: TextView = binding.textViewResult
 
@@ -49,9 +50,14 @@ class RegistrationFragment : Fragment() {
             } catch (e: Exception) {
                 0.00
             }
-            model.addCar(Car(brand, type, lp, seats, cost))
+            val userId: Int = try {
+                userIdEditView.text.toString().toInt()
+            } catch (e: Exception) {
+                1
+            }
+            model.addCar(userId, Car(brand, type, null, userId, lp, seats, cost))
             model.postResponse.observe(this) {
-                resultTextView.text = model.postResponse.value + Car(brand, type, lp, seats, cost)
+                resultTextView.text = model.postResponse.value
             }
         }
             return binding.root

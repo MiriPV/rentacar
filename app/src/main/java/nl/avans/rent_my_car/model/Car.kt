@@ -7,6 +7,10 @@ data class Car(
     val brand: String,
     @Json(name = "type")
     val type: String,
+    @Json(name = "id")
+    val id: Long? = null,
+    @Json(name = "user_id")
+    val user_id: Int? = null,
     @Json(name = "licencePlate")
     val licencePlate: String,
     @Json(name = "seatCount")
