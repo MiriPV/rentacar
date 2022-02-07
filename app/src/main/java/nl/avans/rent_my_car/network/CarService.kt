@@ -23,7 +23,7 @@ interface CarService {
     suspend fun getCars(): List<Car>
 
     @POST("cars")
-    suspend fun postCar(@Body car: Car): Car
+    suspend fun postCar(@Query("user_id") UserId: Int, @Body car: Car)
 
     @DELETE("cars")
     suspend fun deleteCar(@Query("car_id") CarId: Long)

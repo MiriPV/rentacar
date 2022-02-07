@@ -57,7 +57,7 @@ class CustomAdapter(private val carList: List<Car>) : RecyclerView.Adapter<Custo
             bundle.putString("licencePlate", car.licencePlate)
             bundle.putString("brand", brand)
             bundle.putString("type", type)
-            bundle.putLong("id", car.id)
+            car.id?.let { carId -> bundle.putLong("id", carId) }
             bundle.putString("seats", seats)
             bundle.putString("cost", cost)
             navController.navigate(R.id.theCarDetailFragment, bundle)

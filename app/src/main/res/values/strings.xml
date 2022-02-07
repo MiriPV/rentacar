@@ -19,9 +19,16 @@
     <string name="text_type">Type: %.15s</string>
     <string name="text_seats">Number of seats: %.3s</string>
     <string name="text_cost">Cost per hour: %.100s</string>
-    <string name="registration_explanation">Please enter the following information about the car you want to add: Brand, Type(ICE, FCEV, BEV), licence plate, number of seats and the cost per hour to rent the car. When you are done, click on the SEND button. A text will show up on the screen to comfirm that the car is added.</string>
+    <string name="registration_title">How to add a car</string>
+    <string name="registration_explanation">Please enter the following information about the car you want to add: Brand, Type(ICE, FCEV, BEV), licence plate, number of seats, the cost per hour to rent the car and your user id. \n\nWhen you are done, click the SEND button. A text will show up on the screen to comfirm that the car is added.</string>
     <string name="button_send"> SEND </string>
     <string name="x">X Delete this car</string>
     <string name="toast_message">Car deleted successfully!</string>
     <string name="toast_message_error">Could not delete car! Maybe this car was already deleted.</string>
+    <string name="car_brand_registration">Brand</string>
+    <string name="car_type_registration">Type (ICE, FCEV, BEV)</string>
+    <string name="car_lp_registration">Licence plate</string>
+    <string name="car_seats_registration">Number of seats</string>
+    <string name="car_cost_registration">Cost per hour</string>
+    <string name="car_user_id_registration">User id</string>
 </resources>

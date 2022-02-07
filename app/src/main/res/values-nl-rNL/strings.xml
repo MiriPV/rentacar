@@ -20,11 +20,18 @@
     <string name="text_type">Type: %.15s</string>
     <string name="text_seats">Aantal Stoelen: %.3s</string>
     <string name="text_cost">Kosten per uur: %.100s</string>
+    <string name="registration_title">Auto toevoegen:</string>
     <string name="registration_explanation">
-        Vul alstublieft de volgende informatie in over de auto die u wilt toevoegen: Merk, Type(ICE, FCEV, BEV), kenteken, aantal stoel en de huurkosten per uur. Als u klaar bent, klik dan op de VERZENDEN knop. Er zal een tekst op het scherm verschijnen om het toevoegen van de auto te bevestigen.
+        Vul alstublieft de volgende informatie in over de auto die u wilt toevoegen: Merk, Type(ICE, FCEV, BEV), kenteken, aantal stoelen, de huurkosten per uur en uw gebruikers id. \n\nAls u klaar bent, klik dan op de VERZENDEN knop. Er zal een tekst op het scherm verschijnen om het toevoegen van de auto te bevestigen.
     </string>
     <string name="button_send"> VERZENDEN </string>
     <string name="x">X Verwijder deze auto</string>
     <string name="toast_message">Auto is verwijderd!</string>
     <string name="toast_message_error">De auto kon niet verwijderd worden! Misschien was de auto al verwijderd.</string>
+    <string name="car_brand_registration">Automerk</string>
+    <string name="car_type_registration">Type (ICE, FCEV, BEV)</string>
+    <string name="car_lp_registration">Kenteken</string>
+    <string name="car_seats_registration">Aantal stoelen</string>
+    <string name="car_cost_registration">Huurkosten per uur</string>
+    <string name="car_user_id_registration">Gebruikers id</string>
 </resources>

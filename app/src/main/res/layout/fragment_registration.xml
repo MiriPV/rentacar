@@ -7,78 +7,158 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/registration_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registration_title"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+    <TextView
         android:id="@+id/textView_top_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registration_explanation"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:textSize="18sp"
         android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/brand"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="90dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:background="@color/white"/>
-    <EditText
-        android:id="@+id/type"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="90dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:background="@color/white"/>
-    <EditText
-        android:id="@+id/lp"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="90dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:background="@color/white"/>
-    <EditText
-        android:id="@+id/seats"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="90dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:background="@color/white"/>
-    <EditText
-        android:id="@+id/cost"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="90dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:background="@color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/brand_textview"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/car_brand_registration"/>
+            <TextView
+                android:id="@+id/type_textview"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/car_type_registration"/>
+            <TextView
+                android:id="@+id/lp_textview"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/car_lp_registration"/>
+            <TextView
+                android:id="@+id/seats_textview"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/car_seats_registration"/>
+            <TextView
+                android:id="@+id/cost_textview"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/car_cost_registration"/>
+            <TextView
+                android:id="@+id/user_id_textview"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/car_user_id_registration"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/brand"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@color/white"/>
+            <EditText
+                android:id="@+id/type"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@color/white"/>
+            <EditText
+                android:id="@+id/lp"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@color/white"/>
+            <EditText
+                android:id="@+id/seats"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@color/white"/>
+            <EditText
+                android:id="@+id/cost"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@color/white"/>
+            <EditText
+                android:id="@+id/user_id"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@color/white"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/button_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="130dp"
         android:text="@string/button_send" />
-
     <TextView
         android:id="@+id/textView_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="90dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="110dp"
         android:textSize="16sp"
         android:textStyle="bold"
         android:background="@color/white"/>
-
 
 </LinearLayout>

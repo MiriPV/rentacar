@@ -28,6 +28,7 @@ class CarListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(this.context)
 
         val model: CarViewModel by viewModels()
+        model.getAllCars()
         model.response.observe(this) {
             recyclerView.adapter = CustomAdapter(model.response.value!!)
         }

@@ -27,7 +27,7 @@ class CarViewModel : ViewModel() {
         getAllCars()
     }
 
-    private fun getAllCars() {
+    fun getAllCars() {
         viewModelScope.launch {
             try {
                 _response.value = CarApi.carService.getCars().toList()
@@ -37,13 +37,13 @@ class CarViewModel : ViewModel() {
         }
     }
 
-    fun addCar(@Body car: Car) {
+    fun addCar(userId: Int, car: Car) {
         viewModelScope.launch {
             try {
-                CarApi.carService.postCar(car)
-                _postResponse.value = "car: $car posted successfully"
+                CarApi.carService.postCar(userId, car)
+                _postResponse.value = "car posted successfully"
             } catch (e: Exception) {
-                _postResponse.value = "car not posted. " + e.message.toString()
+                _postResponse.value = "car not posted."
             }
         }
     }
@@ -54,7 +54,7 @@ class CarViewModel : ViewModel() {
                 CarApi.carService.deleteCar(carId)
                 _deleteResponse.value = "car deleted successfully"
             } catch (e: Exception) {
-                _deleteResponse.value = "car not deleted. " + e.message.toString()
+                _deleteResponse.value = "car not deleted."
             }
         }
     }
