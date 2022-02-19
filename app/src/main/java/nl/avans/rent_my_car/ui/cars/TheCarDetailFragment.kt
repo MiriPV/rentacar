@@ -1,7 +1,10 @@
 package nl.avans.rent_my_car.ui.cars
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +26,7 @@ private const val ARG_BRAND = "brand"
 private const val ARG_TYPE = "type"
 private const val ARG_SEATS = "seats"
 private const val ARG_COST = "cost"
+private const val ARG_PICTURE = "picture"
 
 class TheCarDetailFragment : Fragment() {
     private var _binding: FragmentTheCarDetailBinding? = null
@@ -34,6 +38,7 @@ class TheCarDetailFragment : Fragment() {
     private var paramType: String? = null
     private var paramSeats: String? = null
     private var paramCost: String? = null
+    private var paramPicture: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +49,7 @@ class TheCarDetailFragment : Fragment() {
             paramType = it.getString(ARG_TYPE)
             paramSeats = it.getString(ARG_SEATS)
             paramCost = it.getString(ARG_COST)
+            paramPicture = it.getString(ARG_PICTURE)
         }
     }
 
@@ -59,7 +65,14 @@ class TheCarDetailFragment : Fragment() {
         val textViewSeats: TextView = binding.tvSeats
         val textViewCost: TextView = binding.tvCost
 
-        imageView.setImageResource(R.drawable.ic_baseline_directions_car_24)
+        //If the car has a picture, use it. Else use the default image.
+        if(paramPicture != "" && paramPicture != null) {
+            val pictureBitmap: Bitmap? = paramPicture?.let { decodeImage(it) }
+            imageView.setImageBitmap(pictureBitmap)
+        } else {
+            imageView.setImageResource(R.drawable.ic_baseline_directions_car_24)
+        }
+
         textViewBrand.text = paramBrand
         textViewType.text = paramType
         textViewSeats.text = paramSeats
@@ -82,6 +95,11 @@ class TheCarDetailFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun decodeImage(picture: String): Bitmap? {
+        val decodedString: ByteArray = Base64.decode(picture, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
     }
 
     override fun onDestroyView() {
