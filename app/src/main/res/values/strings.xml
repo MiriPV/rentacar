@@ -31,4 +31,6 @@
     <string name="car_seats_registration">Number of seats</string>
     <string name="car_cost_registration">Cost per hour</string>
     <string name="car_user_id_registration">User id</string>
+    <string name="check_temperature">check temperature: </string>
+    <string name="toast_message_accuracy">Warning: Sensor accuracy has changed!</string>
 </resources>

@@ -34,4 +34,6 @@
     <string name="car_seats_registration">Aantal stoelen</string>
     <string name="car_cost_registration">Huurkosten per uur</string>
     <string name="car_user_id_registration">Gebruikers id</string>
+    <string name="check_temperature">check temperatuur: </string>
+    <string name="toast_message_accuracy">Waarschuwing: Nauwkeurigheid sensor is veranderd!</string>
 </resources>
