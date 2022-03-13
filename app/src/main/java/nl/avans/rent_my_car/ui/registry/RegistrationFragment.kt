@@ -2,8 +2,13 @@ package nl.avans.rent_my_car.ui.registry
 
 import android.app.Activity
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.hardware.camera2.CameraDevice
 import android.os.Bundle
 import android.provider.MediaStore
@@ -16,6 +21,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -26,10 +32,12 @@ import nl.avans.rent_my_car.model.Car
 import nl.avans.rent_my_car.model.CarViewModel
 import java.io.ByteArrayOutputStream
 
-class RegistrationFragment : Fragment() {
+class RegistrationFragment : Fragment(), SensorEventListener {
 
     private var _binding: FragmentRegistrationBinding? = null
     private val binding get() = _binding!!
+    private lateinit var sensorManager: SensorManager
+    private var lightSensor: Sensor? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +45,8 @@ class RegistrationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRegistrationBinding.inflate(inflater, container, false)
+        sensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
         val brandEditView: EditText = binding.brand
         val typeEditView: EditText = binding.type
         val lpEditView: EditText = binding.lp
@@ -64,15 +74,12 @@ class RegistrationFragment : Fragment() {
             val brand: String = brandEditView.text.toString()
             val type: String = typeEditView.text.toString()
             val lp: String = lpEditView.text.toString()
-            var imageString: String?
+            val imageString: String?
             //Get picture from the preview
             val bm: Bitmap? = try{
                 picturePreview.drawable.toBitmap()
             } catch(e: Exception) {
                 null
-            }
-            if(bm != null) {
-                imageString = encodeImage(bm)
             }
 
             val seats: Int = try {
@@ -118,8 +125,29 @@ class RegistrationFragment : Fragment() {
         return Base64.encodeToString(b, Base64.DEFAULT)
     }
 
+    override fun onResume() {
+        super.onResume()
+        sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sensorManager.unregisterListener(this)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        if (event!!.values[0] > 40) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+    }
+
+    override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
     }
 }

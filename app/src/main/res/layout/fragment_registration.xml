@@ -6,7 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.registry.RegistrationFragment"
     android:orientation="vertical"
-    android:windowSoftInputMode="stateAlwaysHidden">
+    android:windowSoftInputMode="stateAlwaysHidden"
+    android:background="?attr/colorSecondary">
 
     <TextView
         android:id="@+id/registration_title"

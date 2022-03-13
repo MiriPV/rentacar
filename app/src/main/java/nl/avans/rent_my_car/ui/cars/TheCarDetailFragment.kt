@@ -3,6 +3,10 @@ package nl.avans.rent_my_car.ui.cars
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.os.Bundle
 import android.util.Base64
 import androidx.fragment.app.Fragment
@@ -13,6 +17,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import nl.avans.rent_my_car.R
@@ -28,9 +33,11 @@ private const val ARG_SEATS = "seats"
 private const val ARG_COST = "cost"
 private const val ARG_PICTURE = "picture"
 
-class TheCarDetailFragment : Fragment() {
+class TheCarDetailFragment : Fragment(), SensorEventListener {
     private var _binding: FragmentTheCarDetailBinding? = null
     private val binding get() = _binding!!
+    private lateinit var sensorManager: SensorManager
+    private var lightSensor: Sensor? = null
 
     private var paramLP: String? = null
     private var paramId: Long? = null
@@ -58,6 +65,8 @@ class TheCarDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentTheCarDetailBinding.inflate(inflater, container, false)
+        sensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
         val imageView : ImageView = binding.ivCar
         val deleteButton: Button = binding.btnDelete
         val textViewBrand: TextView = binding.tvBrand
@@ -102,8 +111,29 @@ class TheCarDetailFragment : Fragment() {
         return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
     }
 
+    override fun onResume() {
+        super.onResume()
+        sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sensorManager.unregisterListener(this)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        if (event!!.values[0] > 40) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+    }
+
+    override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
     }
 }

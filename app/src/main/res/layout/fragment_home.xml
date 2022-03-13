@@ -6,43 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_check_temperature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/check_temperature"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_marginStart="80dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/text_temperature"
-        app:layout_constraintBottom_toTopOf="@id/imageView4"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text_temperature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintStart_toEndOf="@id/text_check_temperature"
-        app:layout_constraintEnd_toStartOf="@id/temperature_sensor"
-        app:layout_constraintBottom_toTopOf="@id/imageView4"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
+    <ImageView
         android:id="@+id/temperature_sensor"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:drawableTop="@drawable/ic_baseline_wb_sunny_24"
+        android:src="@drawable/ic_baseline_wb_sunny_24"
         android:padding="8dp"
         android:layout_marginStart="20dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/text_check_temperature"
         app:layout_constraintBottom_toTopOf="@id/imageView4" />
 
     <ImageView

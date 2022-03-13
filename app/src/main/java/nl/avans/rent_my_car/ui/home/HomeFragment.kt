@@ -9,9 +9,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import nl.avans.rent_my_car.R
 import nl.avans.rent_my_car.databinding.FragmentHomeBinding
@@ -19,10 +18,9 @@ import nl.avans.rent_my_car.databinding.FragmentHomeBinding
 class HomeFragment : Fragment(), SensorEventListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private lateinit var temperatureTextView: TextView
-    private lateinit var temperatureButton: Button
+    private lateinit var lightModeDarkMode: ImageView
     private lateinit var sensorManager: SensorManager
-    private var temperature: Sensor? = null
+    private var lightSensor: Sensor? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,16 +28,21 @@ class HomeFragment : Fragment(), SensorEventListener {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        temperatureTextView = binding.textTemperature
-        temperatureButton = binding.temperatureSensor
+        lightModeDarkMode = binding.temperatureSensor
         sensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        temperature = sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY)
-
-        temperatureButton.setOnClickListener() {
-            temperatureTextView.text = temperature?.power.toString()
-        }
+        lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sensorManager.unregisterListener(this)
     }
 
     override fun onDestroyView() {
@@ -47,16 +50,16 @@ class HomeFragment : Fragment(), SensorEventListener {
         _binding = null
     }
 
-    override fun onSensorChanged(p0: SensorEvent?) {
-        if (p0 != null) {
-            temperatureTextView.text = p0.values[0].toString()
+    override fun onSensorChanged(event: SensorEvent?) {
+        if (event!!.values[0] > 40) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            lightModeDarkMode.setImageResource(R.drawable.ic_baseline_wb_sunny_24)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            lightModeDarkMode.setImageResource(R.drawable.ic_baseline_nights_stay_24)
         }
-        val string: String = "HALLO"
-        Toast.makeText(this.requireContext(),string, Toast.LENGTH_LONG).show()
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
-        val string: String? = context?.getString(R.string.toast_message_accuracy)
-        Toast.makeText(this.requireContext(),string, Toast.LENGTH_LONG).show()
     }
 }
