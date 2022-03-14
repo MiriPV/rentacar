@@ -1,42 +1,39 @@
 package nl.avans.rent_my_car.ui.registry
 
 import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import android.hardware.camera2.CameraDevice
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
-import nl.avans.rent_my_car.R
 import nl.avans.rent_my_car.databinding.FragmentRegistrationBinding
 import nl.avans.rent_my_car.model.Car
 import nl.avans.rent_my_car.model.CarViewModel
 import java.io.ByteArrayOutputStream
+
 
 class RegistrationFragment : Fragment(), SensorEventListener {
 
     private var _binding: FragmentRegistrationBinding? = null
     private val binding get() = _binding!!
     private lateinit var sensorManager: SensorManager
+    private lateinit var pref: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
     private var lightSensor: Sensor? = null
 
     override fun onCreateView(
@@ -45,6 +42,8 @@ class RegistrationFragment : Fragment(), SensorEventListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRegistrationBinding.inflate(inflater, container, false)
+        pref = activity!!.getPreferences(Context.MODE_PRIVATE)
+        editor = pref.edit()
         sensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
         val brandEditView: EditText = binding.brand
@@ -54,9 +53,17 @@ class RegistrationFragment : Fragment(), SensorEventListener {
         val costEditView: EditText = binding.cost
         val userIdEditView: EditText = binding.userId
         val button: Button = binding.buttonSend
+        val delete: Button = binding.buttonDelete
         val pictureButton : Button = binding.buttonTakePicture
         val resultTextView: TextView = binding.textViewResult
         val picturePreview: ImageView = binding.picturePreview
+
+        //Check if there is a userId that was saved before
+        val id: Int = pref.getInt("userId", 999)
+        Toast.makeText(this.requireContext(), "HALLO", Toast.LENGTH_LONG).show()
+        if (id != 999) {
+            userIdEditView.setText(id.toString())
+        }
 
         //Camera listener
         val takePhoto = registerForActivityResult(
@@ -97,6 +104,9 @@ class RegistrationFragment : Fragment(), SensorEventListener {
             } catch (e: Exception) {
                 1
             }
+            //Save the userId with Shared Preferences so next time the userId is available
+            editor.putInt("userId", userIdEditView.text.toString().toInt())
+            editor.apply()
 
             if(bm != null) {
                 imageString = encodeImage(bm)
@@ -108,6 +118,19 @@ class RegistrationFragment : Fragment(), SensorEventListener {
             model.postResponse.observe(this) {
                 resultTextView.text = model.postResponse.value
             }
+        }
+
+        //Empty all fields and delete the save user id
+        delete.setOnClickListener{
+            picturePreview.setImageBitmap(null)
+            brandEditView.setText("")
+            typeEditView.setText("")
+            lpEditView.setText("")
+            seatsEditView.setText("")
+            costEditView.setText("")
+            userIdEditView.setText("")
+            editor.clear()
+            editor.apply()
         }
 
         pictureButton.setOnClickListener {

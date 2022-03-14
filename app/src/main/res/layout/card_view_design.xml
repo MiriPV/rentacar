@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:padding="5dp"
-        android:background="?attr/colorOnPrimary">
+        android:background="?attr/colorOnSecondary">
 
         <Button
             android:id="@+id/button6"

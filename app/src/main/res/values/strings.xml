@@ -22,6 +22,7 @@
     <string name="registration_title">How to add a car</string>
     <string name="registration_explanation">Please enter the following information about the car you want to add: Brand, Type(ICE, FCEV, BEV), licence plate, number of seats, the cost per hour to rent the car and your user id(1 – 5).</string>
     <string name="button_send"> SEND </string>
+    <string name="button_delete"> DELETE </string>
     <string name="x">X Delete this car</string>
     <string name="toast_message">Car deleted successfully!</string>
     <string name="toast_message_error">Could not delete car! Maybe this car was already deleted.</string>

@@ -25,6 +25,7 @@
         Vul alstublieft de volgende informatie in over de auto die u wilt toevoegen: Merk, Type(ICE, FCEV, BEV), kenteken, aantal stoelen, de huurkosten per uur en uw gebruikers id(1 t/m 5).
     </string>
     <string name="button_send"> VERZENDEN </string>
+    <string name="button_delete"> VERWIJDER </string>
     <string name="x">X Verwijder deze auto</string>
     <string name="toast_message">Auto is verwijderd!</string>
     <string name="toast_message_error">De auto kon niet verwijderd worden! Misschien was de auto al verwijderd.</string>
