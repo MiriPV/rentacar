@@ -15,6 +15,10 @@ import java.text.NumberFormat
 import android.os.Bundle
 import androidx.fragment.app.viewModels
 import nl.avans.rent_my_car.model.CarViewModel
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Base64
+import java.lang.Exception
 
 
 class CustomAdapter(private val carList: List<Car>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
@@ -40,9 +44,16 @@ class CustomAdapter(private val carList: List<Car>) : RecyclerView.Adapter<Custo
         val seats: String = context.getString(R.string.text_seats).format(car.seatCount.toString())
         val currencyFormat: String = NumberFormat.getCurrencyInstance().format(car.rentPerHour)
         val cost: String = context.getString(R.string.text_cost).format(currencyFormat)
+        val pictureString: String? = car.picture
 
-        // sets the image to the imageview from our itemHolder class
-        holder.imageView.setImageResource(R.drawable.ic_baseline_directions_car_24)
+        //If the car has a picture, use it. Else use the default image.
+        if(pictureString != "" && pictureString != null) {
+            val pictureBitmap: Bitmap? = pictureString?.let { decodeImage(it) }
+            holder.imageView.setImageBitmap(pictureBitmap)
+        } else {
+            holder.imageView.setImageResource(R.drawable.ic_baseline_directions_car_24)
+        }
+
         holder.textViewLicencePlate.text = car.licencePlate
         holder.textViewBrand.text = brand
         holder.textViewType.text = type
@@ -51,8 +62,6 @@ class CustomAdapter(private val carList: List<Car>) : RecyclerView.Adapter<Custo
 
         holder.button.setOnClickListener {
             val navController = Navigation.findNavController(holder.itemView)
-            //val details = TheCarDetailFragment.newInstance("volvo", "car")
-            //navController.navigate(details)
             val bundle = Bundle()
             bundle.putString("licencePlate", car.licencePlate)
             bundle.putString("brand", brand)
@@ -60,6 +69,7 @@ class CustomAdapter(private val carList: List<Car>) : RecyclerView.Adapter<Custo
             car.id?.let { carId -> bundle.putLong("id", carId) }
             bundle.putString("seats", seats)
             bundle.putString("cost", cost)
+            car.picture?.let{pictureString -> bundle.putString("picture", pictureString)}
             navController.navigate(R.id.theCarDetailFragment, bundle)
         }
     }
@@ -67,6 +77,11 @@ class CustomAdapter(private val carList: List<Car>) : RecyclerView.Adapter<Custo
     // return the number of the items in the list
     override fun getItemCount(): Int {
         return carList.size
+    }
+
+    private fun decodeImage(picture: String): Bitmap? {
+        val decodedString: ByteArray = Base64.decode(picture, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
     }
 
     // Holds the views for adding it to image and text

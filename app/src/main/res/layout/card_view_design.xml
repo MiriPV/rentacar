@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:padding="5dp"
-        android:background="@color/light_purple">
+        android:background="?attr/colorOnSecondary">
 
         <Button
             android:id="@+id/button6"
@@ -72,7 +72,8 @@
         <ImageView
             android:id="@+id/imageview"
             android:layout_width="106dp"
-            android:layout_height="87dp" />
+            android:layout_height="87dp"
+            app:srcCompat="@drawable/ic_baseline_directions_car_24"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

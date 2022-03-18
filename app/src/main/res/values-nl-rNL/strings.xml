@@ -3,8 +3,6 @@
     <string name="app_name">Huur Mijn Auto</string>
     <string name="title_home">Startpagina</string>
     <string name="title_car_list">Auto\'s</string>
-    <string name="dummy_button">Dummy knop</string>
-    <string name="hello_blank_fragment">Hallo leeg fragment</string>
     <string name="registration_fragment">Profiel Fragment</string>
     <string name="title_car_detail">Auto detailscherm</string>
     <string name="about">
@@ -22,9 +20,10 @@
     <string name="text_cost">Kosten per uur: %.100s</string>
     <string name="registration_title">Auto toevoegen:</string>
     <string name="registration_explanation">
-        Vul alstublieft de volgende informatie in over de auto die u wilt toevoegen: Merk, Type(ICE, FCEV, BEV), kenteken, aantal stoelen, de huurkosten per uur en uw gebruikers id. \n\nAls u klaar bent, klik dan op de VERZENDEN knop. Er zal een tekst op het scherm verschijnen om het toevoegen van de auto te bevestigen.
+        Vul alstublieft de volgende informatie in over de auto die u wilt toevoegen: Merk, Type(ICE, FCEV, BEV), kenteken, aantal stoelen, de huurkosten per uur en uw gebruikers id(1 t/m 5).
     </string>
     <string name="button_send"> VERZENDEN </string>
+    <string name="button_delete"> VERWIJDER </string>
     <string name="x">X Verwijder deze auto</string>
     <string name="toast_message">Auto is verwijderd!</string>
     <string name="toast_message_error">De auto kon niet verwijderd worden! Misschien was de auto al verwijderd.</string>
@@ -34,4 +33,6 @@
     <string name="car_seats_registration">Aantal stoelen</string>
     <string name="car_cost_registration">Huurkosten per uur</string>
     <string name="car_user_id_registration">Gebruikers id</string>
+    <string name="check_temperature">check temperatuur: </string>
+    <string name="toast_message_accuracy">Waarschuwing: Nauwkeurigheid sensor is veranderd!</string>
 </resources>

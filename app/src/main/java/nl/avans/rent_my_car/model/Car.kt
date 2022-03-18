@@ -16,5 +16,7 @@ data class Car(
     @Json(name = "seatCount")
     val seatCount: Int,
     @Json(name = "rentPerHour")
-    val rentPerHour: Double
+    val rentPerHour: Double,
+    @Json(name = "picture")
+    val picture: String? = null
 )
