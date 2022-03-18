@@ -102,7 +102,7 @@
                 android:layout_marginTop="15dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:background="@color/white"/>
+                android:background="@color/purple_400"/>
             <EditText
                 android:id="@+id/type"
                 android:layout_width="180dp"
@@ -110,7 +110,7 @@
                 android:layout_marginTop="15dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:background="@color/white"/>
+                android:background="@color/purple_400"/>
             <EditText
                 android:id="@+id/lp"
                 android:layout_width="180dp"
@@ -118,7 +118,7 @@
                 android:layout_marginTop="15dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:background="@color/white"/>
+                android:background="@color/purple_400"/>
             <EditText
                 android:id="@+id/seats"
                 android:layout_width="180dp"
@@ -126,7 +126,7 @@
                 android:layout_marginTop="15dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:background="@color/white"/>
+                android:background="@color/purple_400"/>
             <EditText
                 android:id="@+id/cost"
                 android:layout_width="180dp"
@@ -134,7 +134,7 @@
                 android:layout_marginTop="15dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:background="@color/white"/>
+                android:background="@color/purple_400"/>
             <EditText
                 android:id="@+id/user_id"
                 android:layout_width="180dp"
@@ -142,7 +142,7 @@
                 android:layout_marginTop="15dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:background="@color/white"/>
+                android:background="@color/purple_400"/>
         </LinearLayout>
     </LinearLayout>
         <LinearLayout
@@ -179,7 +179,7 @@
         android:layout_marginStart="110dp"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:background="@color/white"/>
+        android:background="@color/purple_400"/>
 
     <ImageView
         android:id="@+id/picture_preview"

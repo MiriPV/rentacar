@@ -60,7 +60,6 @@ class RegistrationFragment : Fragment(), SensorEventListener {
 
         //Check if there is a userId that was saved before
         val id: Int = pref.getInt("userId", 999)
-        Toast.makeText(this.requireContext(), "HALLO", Toast.LENGTH_LONG).show()
         if (id != 999) {
             userIdEditView.setText(id.toString())
         }
@@ -122,7 +121,6 @@ class RegistrationFragment : Fragment(), SensorEventListener {
 
         //Empty all fields and delete the save user id
         delete.setOnClickListener{
-            picturePreview.setImageBitmap(null)
             brandEditView.setText("")
             typeEditView.setText("")
             lpEditView.setText("")

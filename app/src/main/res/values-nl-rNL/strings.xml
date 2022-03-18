@@ -3,8 +3,6 @@
     <string name="app_name">Huur Mijn Auto</string>
     <string name="title_home">Startpagina</string>
     <string name="title_car_list">Auto\'s</string>
-    <string name="dummy_button">Dummy knop</string>
-    <string name="hello_blank_fragment">Hallo leeg fragment</string>
     <string name="registration_fragment">Profiel Fragment</string>
     <string name="title_car_detail">Auto detailscherm</string>
     <string name="about">
